@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+{#    <h5>Главная</h5>#}
+{% endblock %}
+
+{% block content %}
+
+      <div class="wrapper border-0 border-secondary exmp1">
+        <a href="/picpart/create">
+          <img src="/media/picpart/newimage.png" alt="">
+        </a>
+      </div>
+
+           {% for item in object_list %}
+                <div class="wrapper border-1 exmp1">
+                   <a href="/picpart/{{ item.pk }}">
+                      <img src="{{item.content.url}}" alt="">
+                   </a>
+               </div>
+          {% endfor %}
+
+    {#        <form method="post">#}
+    {#            {% csrf_token %}#}
+    {#            <button class="btn btn-primary" type="submit"> Сохранить </button>#}
+    {#        </form>#}
+
+{% endblock %}

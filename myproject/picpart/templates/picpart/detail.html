@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+    <img src="{{object.content.url}}" width="100px">
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h5>{{object.name}} ID = {{object.pk}}</h5>
+         <a href="/" class="button">К моим рисункам</a>
+         <a href="/picpart/delete/{{object.pk}}/" class="button">Удалить</a>
+         <a href="/picpart/edit/{{object.pk}}/" class="button">Изменить</a>
+    </div>
+
+     <div class="wrapper border-0 border-secondary exmp1">
+        <a href="/picpart/preview/create/{{object.pk}}/">
+          <img src="/media/picpart/newimage.png" alt="">
+        </a>
+      </div>
+
+     <div>
+         {% for pictupd in object.pictureupgrade_set.all %}
+             <div class="wrapper border-1 exmp1">
+               <a href="#">
+                  <img src="{{ pictupd.content.url }}" alt="">
+               </a>
+           </div>
+         {% endfor %}
+     </div>
+
+{% endblock %}
