@@ -27,5 +27,5 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        python myproject\manage.py test picpart.tests
+        python myproject/manage.py test picpart.tests
 
